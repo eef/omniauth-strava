@@ -14,7 +14,11 @@ module OmniAuth
       }
 
       def request_phase
-        redirect client.auth_code.authorize_url({:redirect_uri => callback_url}.merge(options.authorize_params))
+        url = client.auth_code.authorize_url({:redirect_uri => callback_url}.merge(options.authorize_params))
+        Rails.logger.info "*"*100
+        Rails.logger.info client.auth_code.authorize_url({:redirect_uri => callback_url}.merge(options.authorize_params))
+        Rails.logger.info "*"*100
+        redirect url
       end
 
       uid do
