@@ -14,7 +14,18 @@ module OmniAuth
       }
 
       def request_phase
+        redirect client.auth_code.authorize_url({:redirect_uri => callback_url}.merge(options.authorize_params))
+      end
 
+      uid do
+        request.params[options.uid_field.to_s]
+      end
+
+      info do
+        options.fields.inject({}) do |hash, field|
+          hash[field] = request.params[field]
+          hash
+        end
       end
 
     end
