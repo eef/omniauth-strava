@@ -24,6 +24,9 @@ module OmniAuth
       info do
         options.fields.inject({}) do |hash, field|
           hash[field] = request.params[field]
+          Rails.logger.info "*"*100
+          Rails.logger.info hash.inspect
+          Rails.logger.info "*"*100
           hash
         end
       end
