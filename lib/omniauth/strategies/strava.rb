@@ -8,7 +8,7 @@ module OmniAuth
       option :uid_field, :code
 
       option :client_options, {
-        :site => 'https://www.strava.com/oauth',
+        :site => 'https://www.strava.com',
         :authorize_url => "https://www.strava.com/oauth/authorize",
         :token_url => 'https://www.strava.com/oauth/token'
       }
