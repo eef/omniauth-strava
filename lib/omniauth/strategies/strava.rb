@@ -20,7 +20,7 @@ module OmniAuth
         params["response_type"] = "code"
         params["scope"] = "view_private"
         query = Rack::Utils.build_query(params)
-        url = option
+        url = client.auth_code.authorize_url({:redirect_uri => callback_url})
         url << "?" unless url.match(/\?/)
         url << "&" unless url.match(/[\&\?]$/)
         url << query
