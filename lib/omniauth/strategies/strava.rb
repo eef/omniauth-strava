@@ -33,8 +33,9 @@ module OmniAuth
 
       def callback_phase
         puts request.inspect
+        ap auth_hash.inspect
         super
-        end
+      end
 
       uid do
         puts request.inspect
