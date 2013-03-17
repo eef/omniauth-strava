@@ -32,7 +32,7 @@ module OmniAuth
       end
 
       def callback_phase
-        puts request.inspect
+        ap request.params
         # ap auth_hash.inspect
         super
       end
