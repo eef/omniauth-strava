@@ -5,7 +5,8 @@ module OmniAuth
     class Strava < OmniAuth::Strategies::OAuth2
 
       option :client_options, {
-        :site => 'https://www.strava.com'
+        :site => 'https://www.strava.com',
+        :approval_prompt => "force"
       }
 
       # uid{ raw_info['id'] || verified_email }
