@@ -12,7 +12,7 @@ module OmniAuth
       # uid{ raw_info['id'] || verified_email }
 
       info do
-        puts raw_info
+        raw_info
       end
 
       def raw_info
