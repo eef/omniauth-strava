@@ -9,7 +9,7 @@ module OmniAuth
         :approval_prompt => "force"
       }
 
-      uid { raw_info['info']['id'] }
+      # uid { raw_info['info']['id'] }
 
       info do
         ap raw_info
