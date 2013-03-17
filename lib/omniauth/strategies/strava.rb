@@ -5,12 +5,13 @@ module OmniAuth
     class Strava < OmniAuth::Strategies::OAuth2
 
       option :client_options, {
-        :site          => 'https://www.strava.com'
+        :site => 'https://www.strava.com'
       }
 
       # uid{ raw_info['id'] || verified_email }
 
       info do
+        puts "*"*100
         puts raw_info
       end
 
