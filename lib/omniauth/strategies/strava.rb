@@ -31,6 +31,11 @@ module OmniAuth
         redirect url
       end
 
+      def callback_phase
+        puts request.inspect
+        super
+        end
+
       uid do
         puts request.inspect
         request.params[options.uid_field.to_s]
