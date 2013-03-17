@@ -12,6 +12,7 @@ module OmniAuth
 
       info do
         puts "*"*100
+        ap access_token
         puts raw_info
       end
 
