@@ -10,21 +10,24 @@ module OmniAuth
       option :client_options, {
         :site => 'https://www.strava.com',
         :authorize_url => "https://www.strava.com/oauth/authorize",
-        :token_url => '/oauth/token'
+        :token_url => 'https://www.strava.com/oauth/token'
       }
 
       def request_phase
         params = {}
-        params[:state] = "strava"
-        params[:approval_prompt] = "force"
+        params["state"] = "strava"
+        params["approval_prompt"] = "force"
+        params["response_type"] = "code"
+        params["scope"] = "view_private"
         query = Rack::Utils.build_query(params)
-        url = client.auth_code.authorize_url({:redirect_uri => callback_url}.merge(options.authorize_params))
+        url = option
         url << "?" unless url.match(/\?/)
         url << "&" unless url.match(/[\&\?]$/)
         url << query
-        Rails.logger.info "*"*100
-        Rails.logger.info url
-        Rails.logger.info "*"*100
+        puts "s*"*100
+        puts options.inspect
+        puts url
+        puts "*"*100
         redirect url
       end
 
