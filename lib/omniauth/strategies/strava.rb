@@ -5,7 +5,7 @@ module OmniAuth
     class Strava < OmniAuth::Strategies::OAuth2
 
       option :fields, [:client_id, :client_secret]
-      option :uid_field, :client_id
+      option :uid_field, :code
 
       option :client_options, {
         :site => 'https://www.strava.com/oauth',
@@ -33,7 +33,7 @@ module OmniAuth
 
       def callback_phase
         puts request.inspect
-        ap auth_hash.inspect
+        # ap auth_hash.inspect
         super
       end
 
