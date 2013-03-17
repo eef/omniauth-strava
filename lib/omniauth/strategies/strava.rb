@@ -32,8 +32,7 @@ module OmniAuth
       end
 
       def callback_phase
-        ap request.params
-        # ap auth_hash.inspect
+        token = client.auth_code.get_token(request.params["code"], :redirect_uri => callback_url)
         super
       end
 
