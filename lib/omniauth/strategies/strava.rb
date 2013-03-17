@@ -12,6 +12,7 @@ module OmniAuth
       uid { raw_info['info']['id'] }
 
       info do
+        ap raw_info
         raw_info
       end
 
