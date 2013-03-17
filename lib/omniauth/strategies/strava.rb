@@ -33,6 +33,7 @@ module OmniAuth
 
       def callback_phase
         token = client.auth_code.get_token(request.params["code"], :redirect_uri => callback_url)
+        puts "Token: #{token.inspect}"
         super
       end
 
