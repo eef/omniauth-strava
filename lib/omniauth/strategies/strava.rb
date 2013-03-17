@@ -13,14 +13,12 @@ module OmniAuth
 
       info do
         puts "*"*100
-        ap access_token
-        ap access_token.token
         puts raw_info
       end
 
       def raw_info
         puts "&"*100
-        @raw_info ||= access_token.get('https://www.strava.com/api/v3/athlete').parsed
+        @raw_info ||= access_token.get("https://www.strava.com/api/v3/athlete?auth_token=#{access_token.token}").parsed
       end
 
     end
